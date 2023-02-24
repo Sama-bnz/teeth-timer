@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">teeth-timer</string>
+    <string name="title_activity_main">teeth-timer</string>
+    <string name="package_name">com.simplon.teethtimer</string>
+    <string name="custom_url_scheme">com.simplon.teethtimer</string>
+</resources>

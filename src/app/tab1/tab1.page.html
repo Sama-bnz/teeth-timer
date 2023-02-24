@@ -1,17 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Timer pour {{name}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+<ion-card>
+  <video width="375px" height="200px" autoplay muted controls>
+    <source src="assets/videoDent.m4v" type="video/x-m4v">
+  </video>
+</ion-card>
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Timer</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <div class="timer">
+        <h1>{{ formatTimer(timer) }}</h1>
+        <ion-button (click)="timerStart()" color="secondary">
+          <ion-icon name="play-circle-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="timerStop()" color="warning">
+          <ion-icon name="pause-circle-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="timerReset()" color="danger">
+          <ion-icon name="refresh-circle-outline"></ion-icon>
+        </ion-button>
+  </div>
+  <h1>Timer pour {{name}}</h1>
+   <p>Zones brossées {{zone}}</p>
+   <p>Temps de brossage par zone {{brushing}}</p>
+   <p>Temps d'attente par zone {{waiting}}</p>
 </ion-content>

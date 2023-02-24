@@ -1,17 +1,114 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Paramètres
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <img width="375px" height="150px"  src="assets/gamin.jfif" alt="chicos">
+    </ion-card-header>
+    </ion-card>
+
+<form [formGroup]="settingsForm" (ngSubmit)="submitForm()">
+  <ion-item lines="full" class="ion-margin-vertical">
+    <ion-label position="floating"><ion-icon name="happy-outline"></ion-icon> Total Zones</ion-label>
+    <ion-input type="text" formControlName="zone" placeholder="Nombre de zones à brosser" [value]="settingsForm.value.zone" [clearInput]="true"></ion-input>
+    <ion-note slot="helper" class="screen-reader-only ">
+      Valeur par défaut: 15
+    </ion-note>
+    <ion-note slot="error">Veuillez entrer un chiffre ou un nombre !</ion-note>
+  </ion-item>
+  <ion-item lines="full" class="ion-margin-vertical">
+    <ion-label position="floating"> <ion-icon name="timer-outline"></ion-icon> Temps de brossage par zone</ion-label>
+    <ion-input type="text" formControlName="brushing" placeholder="Temps de brossage par défaut est de 16 secondes" [value]="settingsForm.value.brushing" [clearInput]="true"></ion-input>
+    <ion-note slot="helper" class="screen-reader-only ">
+      Temps de brossage par défaut est de 16 secondes.
+    </ion-note>
+    <ion-note slot="error">Veuillez entrer un chiffre ou un nombre</ion-note>
+  </ion-item>
+
+  <ion-item lines="full" class="ion-margin-vertical">
+    <ion-label position="floating"><ion-icon name="hourglass-outline"></ion-icon> Temps d'attente entre chaque zone</ion-label>
+    <ion-input type="text" formControlName="waiting" placeholder="Le temps d'attente par défaut est de 6 secondes" [value]="settingsForm.value.waiting" [clearInput]="true"></ion-input>
+    <ion-note slot="helper" class="screen-reader-only ">
+      Le temps d'attente par défaut est de 6 secondes.
+    </ion-note>
+    <ion-note slot="error">Veuillez entrer un chiffre ou un nombre</ion-note>
+  </ion-item>
+  <ion-item lines="full" class="ion-margin-vertical">
+    <ion-label position="floating">
+      <ion-icon name="person-circle-outline"></ion-icon> Nom de l'enfant
+      <span class="required"></span>
+    </ion-label>
+    <ion-input type="text" formControlName="name" placeholder="Indiquer le nom de l'enfant" [value]="settingsForm.value.name"  [clearInput]="true" aria-required.></ion-input>
+    <ion-note slot="helper" class="screen-reader-only ">
+      Indiquer le nom de l'enfant.
+    </ion-note>
+    <ion-note slot="error" *ngIf="settingsForm.controls['name'].touched">Ce champ est obligatoire</ion-note>
+  </ion-item>
+    <ion-button type="submit" color="success" class="valider"
+    >
+      <ion-icon name="checkmark-done-outline" slot="start"></ion-icon>
+      Valider
+    </ion-button>
+</form>
+</ion-content>
+
+<!-- <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Paramètres</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
-</ion-content>
+  <ion-label>
+    <ion-title color="primary">
+      <ion-icon name="apps-outline" color="dark"></ion-icon> Total zones</ion-title>
+    <ion-input #Input label="total zones" type="number" name="total zone" placeholder="15"></ion-input>
+  </ion-label>
+
+  <ion-label>
+    <ion-title color="primary">
+      <ion-icon name="alarm-outline" color="dark"></ion-icon> Quand changer de zone?</ion-title>
+    <ion-input #Input label="changement de zone" type="number" name="changement de zone" placeholder="Toutes les 16 secondes"></ion-input>
+  </ion-label>
+
+  <ion-label>
+    <ion-title color="primary">
+      <ion-icon name="hourglass-outline" color="dark"></ion-icon> Temps de pause </ion-title>
+    <ion-input #Input label="pause" type="number" name="temps pause" placeholder="5 secondes"></ion-input>
+  </ion-label>
+
+  <ion-label>
+    <ion-title color="primary">
+      <ion-icon name="person-circle-outline" color="dark"></ion-icon> Pour qui?</ion-title>
+    <ion-input #Input label="qui?" type="text" name="pour qui?" placeholder="Mon petit Thomas"></ion-input>
+  </ion-label>
+
+  <ion-button type="submit" color="success">Valider</ion-button> -->
+
+  <!-- <ion-label>
+    <ion-title color="primary">Total zones</ion-title>
+    <ion-input placeholder="15"></ion-input>
+  </ion-label>
+
+  <ion-label>
+    <ion-title color="primary">Quand changer de zone?</ion-title>
+    <ion-input placeholder="16 secondes"></ion-input>
+  </ion-label>
+
+  <ion-label>
+    <ion-title color="primary">Temps de pause avant changement</ion-title>
+    <ion-input placeholder="5 secondes"></ion-input>
+  </ion-label>
+
+  <ion-label>
+    <ion-title color="primary">Pour Qui?</ion-title>
+    <ion-input placeholder="Mon petit Thomas"></ion-input>
+  </ion-label> -->
+  
